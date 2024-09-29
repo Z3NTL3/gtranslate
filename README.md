@@ -4,9 +4,7 @@
     <div>
         <img src="image.png" width=60><br><br>
         <div>
-                <img alt="GitHub License" src="https://img.shields.io/github/license/z3ntl3/ProxyBeast" >
-                <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/z3ntl3/ProxyBeast">
-                <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/z3ntl3/ProxyBeast">
+                <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/z3ntl3/gtranslate">
         </div>
         <p> <strong> >> Enhance your Go programs with translations << </strong> </p>
     </div>
