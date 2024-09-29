@@ -81,7 +81,7 @@ func (c *Client) SetProxy(proxyURI string) (*Client, error) {
 	return c, nil
 }
 
-// Clears the proxy so that it is not uses on the google translator instance
+// Clears the proxy so that it is not used on the google translator instance
 // when translating
 func (c *Client) ClearProxy() *Client {
 	c.Transport = &http.Transport{}

@@ -4,14 +4,15 @@ import (
 	"testing"
 
 	"github.com/z3ntl3/gtranslate/gtranslate"
+	"github.com/z3ntl3/gtranslate/languages"
 )
 
 // go test -timeout 30s -run ^TestTranslation$ github.com/z3ntl3/gtranslate/tests -v
 func TestTranslation(t *testing.T) 	{
 	text, err := gtranslate.New().
 	Translate(gtranslate.TranslationOptions{
-		SourceLang: "nl",
-		TargetLang: "tr",
+		SourceLang: languages.Dutch,
+		TargetLang: languages.Turkish,
 		Query: "ik ga morgen hardlopen en naar de gym",
 	})
 

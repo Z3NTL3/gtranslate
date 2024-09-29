@@ -38,13 +38,14 @@ import (
 	"log"
 
 	"github.com/z3ntl3/gtranslate/gtranslate"
+	"github.com/z3ntl3/gtranslate/languages"
 )
 
 func main() {
 	text, err := gtranslate.New().
 	Translate(gtranslate.TranslationOptions{
-		SourceLang: "nl",
-		TargetLang: "tr",
+		SourceLang: languages.Dutch,
+		TargetLang: languages.Turkish,
 		Query: "ik ga morgen hardlopen en naar de gym",
 	})
 
