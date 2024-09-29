@@ -29,10 +29,10 @@ type Lang = string
  instead of the current internal one
 */
 type GoogleTranslator[T any] interface {
-	SetProxy(proxyURI string) (*T, error)
+	SetProxy(string) (*T, error)
 	ClearProxy() *T 
-	SetTimeout(d time.Duration) *T
-	Translate(from, to Lang, query string) (string, error)
+	SetTimeout(time.Duration) *T
+	Translate(TranslationOptions) (string, error)
 }
 
 /* 
@@ -53,8 +53,8 @@ Gets encoded in query string
 	
 	Returns translation string in targetLang or error if any
 */
-func Translate[T any, Trans GoogleTranslator[T]](instance Trans, from, to Lang, query string) (string, error) {
-	return instance.Translate(from, to, query)
+func Translate[T any, Trans GoogleTranslator[T]](instance Trans, options TranslationOptions) (string, error) {
+	return instance.Translate(options)
 }
 
 // GoogleTranslator client
@@ -94,17 +94,30 @@ func (c *Client) SetTimeout(d time.Duration) *Client {
 	return c
 }
 
-func (c *Client) Translate(from, to Lang, query string) (string, error) {
+func (c *Client) Translate(opts TranslationOptions) (string, error) {
 	// qs: options
-	options := TranslationOptions{
-		Client: "gtx",
-		SourceLang: from,
-		TargetLang: to,
-		Query: query,
-		DstTarget: DstTarget,
+	
+	if opts.Client == "" {
+		opts.Client = "gtx"
 	}
 
-	v, err := qs.Values(options)
+	if opts.DstTarget == "" {
+		opts.DstTarget = "t"
+	}
+
+	if opts.SourceLang == "" {
+		return "", fmt.Errorf("sourceLang must not be empty")
+	}
+
+	if opts.TargetLang == "" {
+		return "", fmt.Errorf("targetLang must not be empty")
+	}
+	
+	if opts.Query == "" {
+		return "", fmt.Errorf("query must not be empty")
+	}
+
+	v, err := qs.Values(opts)
 	if err != nil {
 		return "", err
 	}
