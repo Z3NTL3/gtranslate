@@ -8,16 +8,12 @@
                 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/z3ntl3/ProxyBeast">
                 <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/z3ntl3/ProxyBeast">
         </div>
+        <p style="font-weight: bold;"> >> Enhance your Go programs with translations << </p>
     </div>
 </div>
 <br>
 <hr>
 
-<div style="text-align: center">
-
-**>> Enhance your Go programs with translations <<**
-
-</div>
 
 
 # GTranslate
